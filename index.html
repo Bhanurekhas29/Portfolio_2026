@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhanu Rekha S | AI Fullstack Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --brand-primary: #6366f1; 
+            --brand-dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; 
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.4);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 40px 70px -15px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-aurora {
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 3rem;
+            border-bottom-right-radius: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .aurora-blob {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 { background: #818cf8; top: -10%; left: -10%; animation-delay: 0s; }
+        .blob-2 { background: #f472b6; bottom: -10%; right: -10%; animation-delay: -5s; }
+        .blob-3 { background: #fbbf24; top: 20%; right: 10%; animation-delay: -10s; }
+
+        @keyframes move {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.1); }
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        #typewriter::after {
+            content: '|';
+            color: var(--brand-primary);
+            animation: blink 0.8s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        #progress-bar {
+            height: 4px;
+            background: linear-gradient(to right, #6366f1, #f43f5e, #fbbf24);
+            width: 0%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-menu {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.2s ease-in-out;
+            pointer-events: none;
+            padding-top: 15px; 
+            top: 100%;
+            margin-top: -10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-600">
+
+    <div id="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-header py-4 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tight text-indigo-700">
+                BHANU REKHA S
+            </div>
+            
+            <ul class="hidden md:flex space-x-8 text-sm font-bold items-center text-slate-700">
+                <li><a href="#about" class="hover:text-indigo-600 transition">1. About</a></li>
+                <li><a href="#skills" class="hover:text-indigo-600 transition">2. Tech</a></li>
+                <li><a href="#projects" class="hover:text-indigo-600 transition">3. Projects</a></li>
+                <li class="dropdown">
+                    <button class="flex items-center gap-1 hover:text-indigo-600 transition outline-none py-2 cursor-pointer">
+                        4. More Info
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="dropdown-menu absolute right-0 w-48 z-50">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
+                            <a href="#experience" class="block px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-500 hover:bg-indigo-50 hover:text-indigo-600 transition">Experience</a>
+                            <a href="#certifications" class="block px-5 py-3 text-xs font-bold uppercase tracking-wider text-slate-500 hover:bg-indigo-50 hover:text-indigo-600 transition border-t border-slate-50">Certifications</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#contact" class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-aurora min-h-[95vh] flex items-center justify-center relative pt-20 mb-12">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+
+        <div class="max-w-4xl px-6 text-center z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1 mb-8 rounded-full bg-white/50 border border-white shadow-sm backdrop-blur-md reveal">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-600">AI FULLSTACK DEVELOPER TRAINEE</span>
+            </div>
+
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-8 tracking-tighter text-slate-900 reveal leading-[1.1]">
+                Upskilled, Ready for the <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-500 to-orange-400 animate-gradient">Next</span> Chapter.
+            </h1>
+            
+            <div class="text-lg md:text-xl font-medium text-slate-600 mb-10 h-8 reveal">
+                <span id="typewriter"></span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 reveal">
+                <a href="#projects" class="bg-slate-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-indigo-600 transition-all hover:scale-105 shadow-xl">
+                    View Projects
+                </a>
+                <a href="#contact" class="bg-white/80 border border-slate-200 text-slate-700 px-8 py-3.5 rounded-full font-bold hover:bg-white transition backdrop-blur-sm shadow-lg">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="section-card p-10 md:p-20 reveal">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative flex justify-center">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700 w-72 h-96 group">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Bhanu Rekha S" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent"></div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <span class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Perspective</span>
+                        <h3 class="text-4xl font-bold mb-8 text-slate-900">About Me</h3>
+                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                            I am an <strong>AI Full Stack Developer</strong> re-entering the workforce after an intensive period of upskilling. I have dedicated myself to mastering modern web architectures and AI API integration. Combining my professional background with a refreshed technical toolkit in <strong>React and Node.js</strong>, I am ready to deliver value and build high-impact, AI-powered solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="section-card p-12 md:p-24 reveal">
+                <div class="text-center mb-16">
+                    <span class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Tech Stack</span>
+                    <h3 class="text-3xl font-bold text-slate-900">Core Expertise</h3>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- HTML5 -->
+                    <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 flex flex-col items-center text-center transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-4 group">
+                        <div class="w-12 h-12 text-orange-500 mb-4 transition-transform group-hover:scale-110">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+                        </div>
+                        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest">HTML5</h4>
+                    </div>
+
+                    <!-- CSS3 -->
+                    <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 flex flex-col items-center text-center transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-4 group">
+                        <div class="w-12 h-12 text-blue-500 mb-4 transition-transform group-hover:scale-110">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm5.09 8.719L6.19 3.512h11.582l-.233 2.622H9.111l.23 2.585h8.219l-.626 6.577-4.957 1.39-4.961-1.39-.309-3.48h2.623l.156 1.757 2.491.666 2.493-.666.242-2.583H6.59z"/></svg>
+                        </div>
+                        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest">CSS3</h4>
+                    </div>
+
+                    <!-- JS -->
+                    <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 flex flex-col items-center text-center transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-4 group">
+                        <div class="w-12 h-12 text-yellow-600 mb-4 transition-transform group-hover:scale-110">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.045-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034-1.021.03-1.86.391-2.454.931-.735.675-1.05 1.68-.601 2.581.391.705 1.156 1.171 2.414 1.621 1.516.54 1.846.885 2.026 1.35.285.705.09 1.485-.45 1.905-.525.435-1.185.525-2.13.33-.78-.18-1.291-.555-1.561-1.11-.735.42-.735.42-1.755.975.195.345.33.51.51.69 1.156 1.171 2.848 1.517 4.154 1.217 1.486-.3 2.384-1.35 2.459-2.776zm-10.424-6.301H8.595v6.392c0 .991-.015 1.831-.075 2.401-.105.826-.406 1.336-1.156 1.606-.615.195-1.215.135-1.74-.105-.405-.195-.751-.57-.961-1.05-.75.51-.75.51-1.635 1.065.225.465.585.81.931 1.065 1.276.9 3.09.84 4.229-.06.705-.585.99-1.32.99-2.7v-8.604z"/></svg>
+                        </div>
+                        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest">JS</h4>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="bg-slate-50 p-10 rounded-3xl border border-slate-100 flex flex-col items-center text-center transition-all hover:bg-white hover:shadow-2xl hover:-translate-y-4 group">
+                        <div class="w-12 h-12 text-indigo-500 mb-4 transition-transform group-hover:scale-110">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.927 0C5.352 0 5.6 2.852 5.6 2.852l.012 2.944H11.94v.421H3.603s-3.603.421-3.603 5.463c0 5.042 3.12 5.253 3.12 5.253h1.861v-2.614s-.066-3.12 3.092-3.12h5.36s3.093 0 3.093-2.911V4.287S16.53 0 11.927 0zM8.463 1.557a.954.954 0 1 1 0 1.908.954.954 0 0 1 0-1.908zm3.61 22.443c6.575 0 6.327-2.852 6.327-2.852l-.012-2.944h-6.328v-.421H20.4s3.603-.421 3.603-5.463c0-5.042-3.12-5.253-3.12-5.253h-1.861v2.614s.066 3.12-3.092 3.12h-5.36s-3.093 0-3.093 2.911v5.042s-.001 4.287 4.59 4.287zM15.537 22.443a.954.954 0 1 1 0-1.908.954.954 0 0 1 0 1.908z"/></svg>
+                        </div>
+                        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest">Python</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="section-card p-12 md:p-24 reveal">
+                <div class="mb-16">
+                    <span class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Career Path</span>
+                    <h3 class="text-3xl font-bold text-slate-900">Professional Experience</h3>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="flex flex-col md:flex-row gap-8 items-start relative pb-12 border-b border-slate-100 last:border-0">
+                        <div class="md:w-1/4">
+                            <span class="text-sm font-bold text-indigo-600">Previous Role</span>
+                            <h4 class="text-xl font-bold text-slate-900 mt-2">Full-Stack Developer</h4>
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">White House Business Solutions Pvt Ltd</p>
+                        </div>
+                        <div class="md:w-3/4">
+                            <p class="text-slate-600 mb-4 leading-relaxed">
+                                Delivered end-to-end development for <strong>SmartBooks</strong>, building both the data architecture and user interfaces for precision raw material tracking. Architected custom PHP modules and interactive frontend components to monitor inventory flow across production stages.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-600">PHP</span>
+                                <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-600">MySQL</span>
+                                <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-600">Raw Material Tracking</span>
+                                <span class="px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-600">ERP Logic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="section-card p-12 md:p-24 reveal">
+                <div class="text-center mb-16">
+                    <span class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Works</span>
+                    <h3 class="text-3xl font-bold text-slate-900">Recent Projects</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Project 1: Vetri Builders -->
+                    <div class="group">
+                        <!-- Clickable Image redirecting to GitHub -->
+                        <a href="https://bhanurekhas29.github.io/Vetri-IT-Systems/" target="_blank" class="block">
+                            <div class="relative rounded-[2rem] overflow-hidden bg-slate-100 aspect-video mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-indigo-200">
+                                <!-- Placeholder for your Project Screenshot -->
+                                <img src="itsystems.jpg" 
+                                     alt="Vetri Builders Screenshot" 
+                                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute bottom-4 right-6 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 uppercase tracking-tighter shadow-sm">Click to View Project</div>
+                            </div>
+                        </a>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">Vetri IT Systems</h4>
+                        <p class="text-slate-500 leading-relaxed mb-4">Designed a web interface for Vetri Builders using semantic HTML5 and modern CSS3, focusing on a clean, professional layout for the construction industry.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">HTML5</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">CSS3</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Vetri IT Systems -->
+                    <div class="group">
+                        <a href="https://bhanurekhas29.github.io/Vetri-Builders/" target="_blank" class="block">
+                            <div class="relative rounded-[2rem] overflow-hidden bg-slate-100 aspect-video mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-pink-200">
+                                <img src="builders.jpg" 
+                                     alt="Vetri IT Systems Screenshot" 
+                                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-pink-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute bottom-4 right-6 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-pink-600 uppercase tracking-tighter shadow-sm">Click to View Project</div>
+                            </div>
+                        </a>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">Vetri Builders</h4>
+                        <p class="text-slate-500 leading-relaxed mb-4">Developed a professional business landing page emphasizing responsive design and modern web fundamentals to showcase IT service capabilities.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">HTML5</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <!-- Clickable Image redirecting to GitHub -->
+                        <a href="https://bhanurekhas29.github.io/Theme-Market-Project/" target="_blank" class="block">
+                            <div class="relative rounded-[2rem] overflow-hidden bg-slate-100 aspect-video mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-indigo-200">
+                                <!-- Placeholder for your Project Screenshot -->
+                                <img src="thememarket.jpg" 
+                                     alt="Vetri Builders Screenshot" 
+                                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute bottom-4 right-6 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 uppercase tracking-tighter shadow-sm">Click to View Project</div>
+                            </div>
+                        </a>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">Theme Market</h4>
+                        <p class="text-slate-500 leading-relaxed mb-4">Designed a web interface for Vetri Builders using semantic HTML5 and modern CSS3, focusing on a clean, professional layout for the construction industry.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">HTML5</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">CSS3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="group">
+                        <!-- Clickable Image redirecting to GitHub -->
+                        <a href="https://bhanurekhas29.github.io/The-Compiler-Hub/" target="_blank" class="block">
+                            <div class="relative rounded-[2rem] overflow-hidden bg-slate-100 aspect-video mb-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-indigo-200">
+                                <!-- Placeholder for your Project Screenshot -->
+                                <img src="compilerhub.jpg" 
+                                     alt="Vetri Builders Screenshot" 
+                                     class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute bottom-4 right-6 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-indigo-600 uppercase tracking-tighter shadow-sm">Click to View Project</div>
+                            </div>
+                        </a>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-3">Theme Market</h4>
+                        <p class="text-slate-500 leading-relaxed mb-4">Designed a web interface for Vetri Builders using semantic HTML5 and modern CSS3, focusing on a clean, professional layout for the construction industry.</p>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">HTML5</span>
+                            <span class="text-[10px] font-bold px-2 py-1 bg-slate-100 rounded uppercase">CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="section-card p-12 md:p-24 reveal">
+                <div class="text-center mb-16">
+                    <span class="text-indigo-600 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Recognition</span>
+                    <h3 class="text-3xl font-bold text-slate-900">Certifications & Training</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all group">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-slate-900 mb-2">Fullstack Development</h4>
+                        <p class="text-xs text-slate-500 font-bold uppercase">Intensive Training Program</p>
+                    </div>
+                    <!-- Add more actual certs as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 pb-32">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="section-card p-16 md:p-32 text-center reveal border-none bg-gradient-to-tr from-indigo-600 to-indigo-800 text-white shadow-indigo-200">
+                <span class="text-indigo-200 font-bold uppercase tracking-[0.2em] text-xs mb-8 block">Get In Touch</span>
+                <h2 class="text-4xl md:text-6xl font-bold mb-12 leading-tight">Let's build something <span class="italic underline decoration-pink-400 underline-offset-8">next-gen</span> together.</h2>
+                
+                <a href="mailto:sbrekha92@gmail.com" class="inline-block px-10 py-5 bg-white text-indigo-700 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition-transform active:scale-95">
+                    contact->sbrekha92@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-slate-900 text-white relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 mb-12">
+                <div class="text-2xl font-black tracking-tighter">BHANU REKHA S</div>
+                <div class="flex gap-10 text-sm font-bold uppercase tracking-widest text-slate-400">
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com/Bhanurekhas29" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                </div>
+            </div>
+            <div class="h-px w-full bg-slate-800 mb-12"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em]">Designed with intention | 2026</p>
+                <div class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">AI Fullstack Developer</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            const total = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / total) * 100;
+            if(bar) bar.style.width = progress + '%';
+            
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-2xl');
+                nav.style.background = "rgba(255, 255, 255, 0.95)";
+            } else {
+                nav.classList.remove('py-2', 'shadow-2xl');
+                nav.style.background = "rgba(255, 255, 255, 0.8)";
+            }
+        });
+
+        // Typewriter
+        const phrases = ["Actively Seeking New Opportunities", "Building SmartBooks ERP Logic", "Mastering AI & React Ecosystem"];
+        let pIdx = 0, cIdx = 0, isDel = false;
+        
+        function type() {
+            const el = document.getElementById('typewriter');
+            if (!el) return;
+            const full = phrases[pIdx];
+            el.textContent = isDel ? full.substring(0, cIdx--) : full.substring(0, cIdx++);
+            
+            let speed = isDel ? 30 : 60;
+            if (!isDel && cIdx === full.length + 1) { isDel = true; speed = 2000; }
+            else if (isDel && cIdx === 0) { isDel = false; pIdx = (pIdx + 1) % phrases.length; speed = 500; }
+            
+            setTimeout(type, speed);
+        }
+
+        // Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+
+        window.onload = () => {
+            type();
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        };
+    </script>
+</body>
+</html>
